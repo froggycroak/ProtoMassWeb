@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>使用指南 · 建筑原型手册</title>
+  <link rel="stylesheet" href="/site.css" />
+</head>
+<body>
+  <div data-site-top></div>
+  <script src="/site-top.js"></script>
+  <main class="site-main guide-doc">
+    <h1 class="page-title">使用指南</h1>
+    <p class="page-lead">安装、上手与远程办公说明</p>
+
+    <div class="guide-layout">
+      <nav class="guide-toc" aria-label="本页目录">
+        <a class="toc-l1" href="#install">安装指南</a>
+        <a class="toc-l2" href="#install-network">内网连通</a>
+        <a class="toc-l2" href="#install-env">环境要求</a>
+        <a class="toc-l2" href="#install-wizard">安装向导</a>
+        <a class="toc-l2" href="#install-appserver">AppServerUrl</a>
+        <a class="toc-l2" href="#install-start">启动软件</a>
+
+        <a class="toc-l1" href="#quickstart">快速上手</a>
+        <a class="toc-l2" href="#quickstart-before">开始前</a>
+        <a class="toc-l2" href="#quickstart-commands">工作台命令</a>
+        <a class="toc-l2" href="#quickstart-flow">推荐流程</a>
+
+        <a class="toc-l1" href="#remote">远程办公</a>
+        <a class="toc-l2" href="#remote-why">为何需要 VPN</a>
+        <a class="toc-l2" href="#remote-steps">连接步骤</a>
+        <a class="toc-l2" href="#remote-troubleshoot">仍无法访问时</a>
+      </nav>
+
+      <div class="guide-body">
+        <section id="install" class="guide-section">
+          <h2>安装指南</h2>
+          <p class="section-lead">建筑原型手册客户端 · 示例步骤（后续与正式安装稿对齐）</p>
+
+          <h3 id="install-network">1. 内网连通</h3>
+          <ol>
+            <li>【连通测试】打开门户首页：<a href="/"><code>/</code></a>（能打开即表示可达 AppServer）。</li>
+            <li>【若无法访问】设备可能不在华建集团内网，请先按 <a href="#remote">远程办公</a> 连接 VPN 后再试。</li>
+            <li>【若访问成功】继续下一步。</li>
+          </ol>
+
+          <h3 id="install-env">2. 环境要求</h3>
+          <ul>
+            <li>操作系统：Windows 10/11</li>
+            <li>建模软件：<strong>Rhino 8</strong>（当前安装包载荷为 <code>rhino81-net7</code>）</li>
+            <li>网络：集团内网，或 VPN 后可达本门户所在主机</li>
+          </ul>
+          <div class="fig">
+            <!-- TODO: 替换为 Rhino 8 / 安装环境示意截图 -->
+            <img src="http://10.253.6.206:5000/images/stock_renew/cases/168/00.jpg" alt="环境示意占位图" />
+          </div>
+          <p class="fig-cap">占位图 · 建议换成 Rhino 8 启动或安装向导截图</p>
+
+          <h3 id="install-wizard">3. 下载并运行安装向导</h3>
+          <ol>
+            <li>前往 <a href="/downloads/">下载中心</a> 获取客户端安装包 zip。</li>
+            <li>解压后运行 <code>install.ps1</code>（建议：<code>powershell -sta -File .\install.ps1</code>）。</li>
+            <li>向导会将插件写入 <span class="path">%AppData%\ArchiFrog\ProtoMass.Client\</span>。</li>
+            <li>在向导中粘贴你的 <strong>ApiKey</strong>（勿直接覆盖样例 credentials 文件）。</li>
+          </ol>
+          <p><a class="btn" href="/downloads/">去下载中心</a></p>
+          <p class="muted">说明：旧版「手动拷贝 ProtoMass 文件夹」方式已由安装向导替代；细节以仓库 <code>docs/prompt-installer.md</code> 为准。</p>
+
+          <h3 id="install-appserver">4. 配置 AppServerUrl</h3>
+          <ul>
+            <li>客户端开发者配置中的服务入口应指向本门户基址（无路径后缀），例如：<code>http://10.253.6.206:7250</code>。</li>
+            <li>可用工作台命令 <code>developer</code> 打开配置对话框核对。</li>
+          </ul>
+
+          <h3 id="install-start">5. 启动软件</h3>
+          <ol>
+            <li>打开 Rhinoceros 8。</li>
+            <li>确认 ProtoMass 插件已加载（安装向导可选静默加载 <code>.rhp</code>）。</li>
+            <li class="todo">TODO：补充正式 Rhino 命令名 / 工作台打开方式（当前安装稿命令栏为空）。</li>
+          </ol>
+        </section>
+
+        <section id="quickstart" class="guide-section">
+          <h2>快速上手</h2>
+          <p class="section-lead">工作台常用操作提纲（示例，后续完善截图与步骤）</p>
+
+          <h3 id="quickstart-before">开始前</h3>
+          <ul>
+            <li>已按 <a href="#install">安装指南</a> 完成客户端安装。</li>
+            <li>已用 <code>setapikey</code>（或安装向导）写入本机 ApiKey。</li>
+            <li>AppServerUrl 指向门户基址（如 <code>http://10.253.6.206:7250</code>）。</li>
+          </ul>
+
+          <h3 id="quickstart-commands">工作台命令（节选）</h3>
+          <p class="muted">中央视口下方指令框输入后按 Enter；命令不区分大小写。</p>
+          <table>
+            <thead>
+              <tr><th>命令</th><th>作用</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><code>generate</code></td><td>触发生成体量（等同左侧面板按钮）</td></tr>
+              <tr><td><code>developer</code></td><td>打开工作台配置 · 开发者选项</td></tr>
+              <tr><td><code>protoconfig</code></td><td>打开工作台配置 · 原型预加载</td></tr>
+              <tr><td><code>setapikey</code></td><td>设置 API Key（只写不读）</td></tr>
+              <tr><td><code>readapikey</code></td><td>在打印区显示当前 Key</td></tr>
+            </tbody>
+          </table>
+          <p class="muted">完整列表见仓库 <code>docs/guide-cmd.md</code>。</p>
+
+          <h3 id="quickstart-flow">推荐流程（示例）</h3>
+          <ol>
+            <li>确认网络：能打开 <a href="/">门户首页</a>。</li>
+            <li><code>setapikey</code> 写入密钥（若安装时未填）。</li>
+            <li><code>developer</code> 核对 AppServerUrl / 单入口模式。</li>
+            <li>在左侧面板选择原型并 <code>generate</code>。</li>
+          </ol>
+          <p class="todo">TODO：补充界面截图（建议图床 <code>/images/protomass/quickstart-*.jpg</code>）。</p>
+        </section>
+
+        <section id="remote" class="guide-section">
+          <h2>远程办公</h2>
+          <p class="section-lead">不在集团内网时，须先连接集团 VPN</p>
+
+          <h3 id="remote-why">为何需要 VPN</h3>
+          <p>ProtoMass AppServer 部署在集团内网（样例主机 <code>10.253.6.206:7250</code>）。外网或家用网络无法直连时，需通过集团 SSL-VPN 进入内网，再访问门户与业务接口。</p>
+
+          <h3 id="remote-steps">连接步骤（提纲）</h3>
+          <ol>
+            <li>打开集团 VPN 入口：<a href="https://180.166.157.216" target="_blank" rel="noopener">https://180.166.157.216</a>（EasyConnect SSL-VPN）。</li>
+            <li>按账号权限登录并完成客户端连接。</li>
+            <li>浏览器访问 <a href="/">本门户首页</a>，确认页面可打开。</li>
+            <li>再启动 Rhino / ProtoMass 客户端进行设计操作。</li>
+          </ol>
+          <p>
+            <a class="btn" href="https://180.166.157.216" target="_blank" rel="noopener">打开 VPN 入口</a>
+            <a class="btn secondary" href="/downloads/">下载 VPN 说明 PDF</a>
+          </p>
+          <p class="muted">正式 PDF 手册放入服务器 <code>DownloadsRoot/docs/</code> 后，下载中心链接才会可用。</p>
+
+          <h3 id="remote-troubleshoot">仍无法访问时</h3>
+          <ul>
+            <li>确认 VPN 已连接成功（非仅打开登录页）。</li>
+            <li>确认门户地址与安装指南一致（端口 <code>7250</code>）。</li>
+            <li>联系项目运维核对白名单 / 主机状态（勿向终端用户分发运维 URL）。</li>
+          </ul>
+          <p class="todo">TODO：嵌入 VPN 登录步骤截图；PDF 文件名与下载链接对齐后去掉占位提示。</p>
+        </section>
+      </div>
+    </div>
+  </main>
+  <footer class="site-footer">华建集团中央研究院 | 华建集团华东院</footer>
+  <script>
+    (function () {
+      var links = Array.prototype.slice.call(document.querySelectorAll(".guide-toc a[href^='#']"));
+      if (!links.length) return;
+      var ids = links.map(function (a) { return a.getAttribute("href").slice(1); });
+      var sections = ids.map(function (id) { return document.getElementById(id); }).filter(Boolean);
+
+      function setActive(id) {
+        links.forEach(function (a) {
+          a.classList.toggle("is-active", a.getAttribute("href") === "#" + id);
+        });
+      }
+
+      function onScroll() {
+        var y = window.scrollY + 96;
+        var current = ids[0];
+        for (var i = 0; i < sections.length; i++) {
+          if (sections[i].offsetTop <= y) current = sections[i].id;
+        }
+        setActive(current);
+      }
+
+      window.addEventListener("scroll", onScroll, { passive: true });
+      onScroll();
+      if (location.hash) setActive(location.hash.slice(1));
+    })();
+  </script>
+</body>
+</html>
