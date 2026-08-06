@@ -1,28 +1,36 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>下载中心 · 建筑原型手册</title>
   <link rel="stylesheet" href="/site.css" />
 </head>
+
 <body>
   <div data-site-top></div>
   <script src="/site-top.js"></script>
   <main class="site-main">
-    <h1 class="page-title">下载中心</h1>
-    <p class="page-lead">客户端安装包与文档（大文件由服务器 DownloadsRoot 提供）</p>
+    <!-- <h1 class="page-title">下载中心</h1>
+    <p class="page-lead">客户端安装包与文档（大文件由服务器 DownloadsRoot 提供）</p> -->
     <div class="card">
       <h2>客户端</h2>
-      <table>
+      <table class="dl-cols">
         <thead>
-          <tr><th>名称</th><th>说明</th><th>状态</th></tr>
+          <tr>
+            <th>名称</th>
+            <th>说明</th>
+            <th>状态</th>
+          </tr>
         </thead>
         <tbody>
           <tr>
-            <td><a href="/downloads/client/ProtoMass-Client-latest.zip">ProtoMass-Client-latest.zip</a></td>
-            <td>Rhino 8 安装包（含 install.ps1 与载荷）。示例文件名，上线前替换为真实包名。</td>
-            <td><span class="badge">待投放</span></td>
+            <td><a
+                href="/downloads/ProtoMass/installer/【安装包】建筑原型手册-智能设计工具-0.2.7.1.zip">【安装包】建筑原型手册-智能设计工具-0.2.7.1.zip</a>
+            </td>
+            <td>客户端安装包，安装步骤参见 <a href="/guide/#install">安装指南</a></td>
+            <td><span class="badge ok">可下载</span></td>
           </tr>
         </tbody>
       </table>
@@ -30,33 +38,30 @@
 
     <div class="card">
       <h2>文档</h2>
-      <table>
+      <table class="dl-cols">
         <thead>
-          <tr><th>名称</th><th>说明</th><th>状态</th></tr>
+          <tr>
+            <th>名称</th>
+            <th>说明</th>
+            <th>状态</th>
+          </tr>
         </thead>
         <tbody>
           <tr>
-            <td><a href="/downloads/docs/EasyConnect-SSL-VPN-PAS.pdf">EasyConnect SSL-VPN 用户手册</a></td>
-            <td>集团 VPN（PAS 版）说明 PDF。</td>
-            <td><span class="badge">待投放</span></td>
-          </tr>
-          <tr>
-            <td><a href="/downloads/docs/ProtoMass-User-Guide.pdf">ProtoMass 用户手册</a></td>
-            <td>终端用户手册（占位链接）。</td>
-            <td><span class="badge">待投放</span></td>
+            <td><a href="/downloads/General/ArcplusVPN/【指南】华建集团VPN用户手册.pdf">【指南】华建集团VPN用户手册.pdf</a></td>
+            <td>集团 VPN 使用说明。</td>
+            <td><span class="badge ok">可下载</span></td>
           </tr>
         </tbody>
       </table>
-      <p class="note">
-        文件不进 Git。部署时放到例如
-        <code>C:\ProgramCustom\TempData\ProtoMass\Resources\client\</code> /
-        <code>...\docs\</code>，并在 AppServer 配置 <code>DownloadsRoot</code> 指向 Resources 根目录。
-        链接在文件就位前会 404，属预期。
-      </p>
     </div>
 
-    <p class="muted">需要安装步骤？请看 <a href="/guide/#install">安装指南</a>。</p>
+
+
+
+
   </main>
   <footer class="site-footer">华建集团中央研究院 | 华建集团华东院</footer>
 </body>
+
 </html>

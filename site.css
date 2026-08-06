@@ -2,7 +2,7 @@
 :root {
   --theme: rgb(255, 192, 0);
   --theme-ink: #1a1d21;
-  --bg: #f5f0e4;
+  --bg: #fff;
   --card: #fff;
   --text: #1a1d21;
   --muted: #5c6570;
@@ -59,6 +59,11 @@ body {
   gap: 18px;
   text-decoration: none;
   color: inherit;
+  transition: transform 0.22s ease;
+}
+
+.site-top-brand:hover {
+  transform: translateY(-3px);
 }
 
 .site-brand {
@@ -303,6 +308,20 @@ body.is-portal .site-footer {
   scrollbar-gutter: stable;
 }
 
+.guide-toc .toc-group {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.guide-toc .toc-group .toc-l2 {
+  display: none;
+}
+
+.guide-toc .toc-group.is-active .toc-l2 {
+  display: block;
+}
+
 .guide-toc a {
   display: block;
   color: var(--muted);
@@ -330,8 +349,13 @@ body.is-portal .site-footer {
   color: var(--text);
 }
 
-.guide-toc .toc-l1:first-child {
+.guide-toc .toc-group:first-child .toc-l1 {
   margin-top: 0;
+}
+
+.guide-toc .toc-group.is-active .toc-l1 {
+  color: var(--theme-ink);
+  border-left-color: var(--theme);
 }
 
 .guide-toc .toc-l2 {
@@ -344,16 +368,14 @@ body.is-portal .site-footer {
 }
 
 .guide-section {
-  margin-bottom: 36px;
-  padding-bottom: 28px;
-  border-bottom: 1px solid var(--line);
-  scroll-margin-top: 20px;
-}
-
-.guide-section:last-child {
   margin-bottom: 0;
   padding-bottom: 0;
   border-bottom: none;
+  scroll-margin-top: 20px;
+}
+
+.guide-section:not(.is-active) {
+  display: none;
 }
 
 .guide-section > h2 {
@@ -413,6 +435,20 @@ body.is-portal .site-footer {
     border-bottom: 1px solid var(--line);
   }
 
+  .guide-toc .toc-group {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 6px 10px;
+  }
+
+  .guide-toc .toc-group .toc-l2 {
+    display: none;
+  }
+
+  .guide-toc .toc-group.is-active .toc-l2 {
+    display: block;
+  }
+
   .guide-toc .toc-l1,
   .guide-toc .toc-l2 {
     margin: 0;
@@ -421,7 +457,8 @@ body.is-portal .site-footer {
     border-bottom: 2px solid transparent;
   }
 
-  .guide-toc a.is-active {
+  .guide-toc a.is-active,
+  .guide-toc .toc-group.is-active .toc-l1 {
     border-left-color: transparent;
     border-bottom-color: var(--theme);
   }
@@ -480,6 +517,23 @@ body.is-portal .site-footer {
 
 .card p:last-child {
   margin-bottom: 0;
+}
+
+.card ul,
+.card ol {
+  margin: 0 0 10px;
+  padding-left: 1.25rem;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.card li {
+  margin: 0.35em 0;
+}
+
+.card .fig {
+  margin-top: 8px;
 }
 
 .site-main a:not(.btn):not(.tile) {
@@ -566,6 +620,28 @@ table {
   width: 100%;
   border-collapse: collapse;
   font-size: 0.92rem;
+}
+
+/* 下载中心多表共用列宽，保证两组表格竖线对齐 */
+table.dl-cols {
+  table-layout: fixed;
+}
+
+table.dl-cols th:nth-child(1),
+table.dl-cols td:nth-child(1) {
+  width: 54%;
+  word-break: break-all;
+}
+
+table.dl-cols th:nth-child(2),
+table.dl-cols td:nth-child(2) {
+  width: 32%;
+}
+
+table.dl-cols th:nth-child(3),
+table.dl-cols td:nth-child(3) {
+  width: 14%;
+  white-space: nowrap;
 }
 
 th,

@@ -1,55 +1,68 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>使用指南 · 建筑原型手册</title>
   <link rel="stylesheet" href="/site.css" />
 </head>
+
 <body>
   <div data-site-top></div>
   <script src="/site-top.js"></script>
   <main class="site-main guide-doc">
-    <h1 class="page-title">使用指南</h1>
-    <p class="page-lead">安装、上手与远程办公说明</p>
+    <!-- <h1 class="page-title">使用指南</h1>
+    <p class="page-lead">安装、上手与远程办公说明</p> -->
 
     <div class="guide-layout">
       <nav class="guide-toc" aria-label="本页目录">
-        <a class="toc-l1" href="#install">安装指南</a>
-        <a class="toc-l2" href="#install-network">内网连通</a>
-        <a class="toc-l2" href="#install-env">环境要求</a>
-        <a class="toc-l2" href="#install-wizard">安装向导</a>
-        <a class="toc-l2" href="#install-appserver">AppServerUrl</a>
-        <a class="toc-l2" href="#install-start">启动软件</a>
+        <div class="toc-group is-active" data-section="install">
+          <a class="toc-l1" href="#install">安装指南</a>
+          <a class="toc-l2" href="#install-network">网络环境检查</a>
+          <a class="toc-l2" href="#install-env">系统环境要检查</a>
+          <a class="toc-l2" href="#install-wizard">下载并运行安装包</a>
+          <a class="toc-l2" href="#install-start">启动软件</a>
+        </div>
 
-        <a class="toc-l1" href="#quickstart">快速上手</a>
-        <a class="toc-l2" href="#quickstart-before">开始前</a>
-        <a class="toc-l2" href="#quickstart-commands">工作台命令</a>
-        <a class="toc-l2" href="#quickstart-flow">推荐流程</a>
+        <div class="toc-group" data-section="quickstart">
+          <a class="toc-l1" href="#quickstart">快速上手</a>
+          <a class="toc-l2" href="#quickstart-before">开始前</a>
+          <a class="toc-l2" href="#quickstart-site">场地环境加载</a>
+          <a class="toc-l2" href="#quickstart-boundary">红线与控制线</a>
+          <a class="toc-l2" href="#quickstart-params">设计参数</a>
+          <a class="toc-l2" href="#quickstart-generate">生成体量与预览</a>
+          <a class="toc-l2" href="#quickstart-commands">工作台命令</a>
+        </div>
 
-        <a class="toc-l1" href="#remote">远程办公</a>
-        <a class="toc-l2" href="#remote-why">为何需要 VPN</a>
-        <a class="toc-l2" href="#remote-steps">连接步骤</a>
-        <a class="toc-l2" href="#remote-troubleshoot">仍无法访问时</a>
+        <div class="toc-group" data-section="remote">
+          <a class="toc-l1" href="#remote">远程办公</a>
+          <a class="toc-l2" href="#remote-why">适用场景</a>
+          <a class="toc-l2" href="#remote-install">下载与安装</a>
+          <a class="toc-l2" href="#remote-connect">连接 VPN</a>
+          <a class="toc-l2" href="#remote-auth">身份认证</a>
+          <a class="toc-l2" href="#remote-access">访问本门户与客户端</a>
+          <a class="toc-l2" href="#remote-cheat">信息速查</a>
+          <a class="toc-l2" href="#remote-notes">注意事项</a>
+        </div>
       </nav>
 
       <div class="guide-body">
-        <section id="install" class="guide-section">
+        <section id="install" class="guide-section is-active">
           <h2>安装指南</h2>
-          <p class="section-lead">建筑原型手册客户端 · 示例步骤（后续与正式安装稿对齐）</p>
+          <p class="section-lead">建筑原型手册客户端安装流程</p>
 
-          <h3 id="install-network">1. 内网连通</h3>
-          <ol>
-            <li>【连通测试】打开门户首页：<a href="/"><code>/</code></a>（能打开即表示可达 AppServer）。</li>
-            <li>【若无法访问】设备可能不在华建集团内网，请先按 <a href="#remote">远程办公</a> 连接 VPN 后再试。</li>
-            <li>【若访问成功】继续下一步。</li>
-          </ol>
+          <h3 id="install-network">网络环境检查</h3>
+          <ul>
+            <li>说明：本应用目前仅限华建集团内部使用，因此需要确保您的设备位于内网。</li>
+            <li>连通测试：打开 <a href="http://10.253.6.206:7250/welcome">连通检测</a>，能打开即表示您的设备已接入华建集团内网。</li>
+            <li>若设备不在华建集团内网（例如您家中的电脑），请先按 <a href="#remote">远程办公</a> 的步骤连接VPN，再使用本应用。</li>
+          </ul>
 
-          <h3 id="install-env">2. 环境要求</h3>
+          <h3 id="install-env">系统环境要检查</h3>
           <ul>
             <li>操作系统：Windows 10/11</li>
-            <li>建模软件：<strong>Rhino 8</strong>（当前安装包载荷为 <code>rhino81-net7</code>）</li>
-            <li>网络：集团内网，或 VPN 后可达本门户所在主机</li>
+            <li>建模软件：当前安装包仅支持Rhino8，不支持Rhino7及更早版本。</li>
           </ul>
           <div class="fig">
             <!-- TODO: 替换为 Rhino 8 / 安装环境示意截图 -->
@@ -57,94 +70,217 @@
           </div>
           <p class="fig-cap">占位图 · 建议换成 Rhino 8 启动或安装向导截图</p>
 
-          <h3 id="install-wizard">3. 下载并运行安装向导</h3>
-          <ol>
-            <li>前往 <a href="/downloads/">下载中心</a> 获取客户端安装包 zip。</li>
-            <li>解压后运行 <code>install.ps1</code>（建议：<code>powershell -sta -File .\install.ps1</code>）。</li>
-            <li>向导会将插件写入 <span class="path">%AppData%\ArchiFrog\ProtoMass.Client\</span>。</li>
-            <li>在向导中粘贴你的 <strong>ApiKey</strong>（勿直接覆盖样例 credentials 文件）。</li>
-          </ol>
-          <p><a class="btn" href="/downloads/">去下载中心</a></p>
-          <p class="muted">说明：旧版「手动拷贝 ProtoMass 文件夹」方式已由安装向导替代；细节以仓库 <code>docs/prompt-installer.md</code> 为准。</p>
-
-          <h3 id="install-appserver">4. 配置 AppServerUrl</h3>
+          <h3 id="install-wizard">下载并运行安装包</h3>
           <ul>
-            <li>客户端开发者配置中的服务入口应指向本门户基址（无路径后缀），例如：<code>http://10.253.6.206:7250</code>。</li>
-            <li>可用工作台命令 <code>developer</code> 打开配置对话框核对。</li>
+            <li>前往 <a href="/downloads/">下载中心</a> 获取客户端安装包，或直接下载默认安装包
+              <a
+                href="/downloads/ProtoMass/installer/【安装包】建筑原型手册-智能设计工具-0.2.7.1.zip">【安装包】建筑原型手册-智能设计工具-0.2.7.1.zip</a>。
+            </li>
+            <li>解压后运行 <code>install.cmd</code>，按照想到提示点击"安装"，"注册"。</li>
+            <li>在向导中粘贴你的 <strong>ApiKey</strong>，获取apikey请联系胡工。</li>
           </ul>
 
-          <h3 id="install-start">5. 启动软件</h3>
-          <ol>
-            <li>打开 Rhinoceros 8。</li>
-            <li>确认 ProtoMass 插件已加载（安装向导可选静默加载 <code>.rhp</code>）。</li>
-            <li class="todo">TODO：补充正式 Rhino 命令名 / 工作台打开方式（当前安装稿命令栏为空）。</li>
-          </ol>
+          <h3 id="install-start">启动软件</h3>
+          <ul>
+            <li>打开 Rhinoceros软件.</li>
+            <li>通过菜单栏“原型”选项卡下的按钮启动客户端；或通过命令行输入"proto"命令启动客户端。</li>
+            <li>恭喜您顺利完成安装！</li>
+          </ul>
+
+
         </section>
 
-        <section id="quickstart" class="guide-section">
+        <section id="quickstart" class="guide-section" hidden>
           <h2>快速上手</h2>
-          <p class="section-lead">工作台常用操作提纲（示例，后续完善截图与步骤）</p>
+          <p class="section-lead">在客户端中加载场地、设置参数、生成体量等核心流程</p>
 
           <h3 id="quickstart-before">开始前</h3>
           <ul>
-            <li>已按 <a href="#install">安装指南</a> 完成客户端安装。</li>
-            <li>已用 <code>setapikey</code>（或安装向导）写入本机 ApiKey。</li>
-            <li>AppServerUrl 指向门户基址（如 <code>http://10.253.6.206:7250</code>）。</li>
+            <li>已按 <a href="#install">安装指南</a> 完成客户端安装，并能打开本门户。</li>
+            <li>已用安装向导或命令 <code>setapikey</code> 写入本机 ApiKey。</li>
+            <li>在 Rhino 8 中打开或新建文档，启动 ProtoMass 全屏工作台。</li>
           </ul>
+          <p>工作台界面分左右两区：左侧为功能参数面板（场地模型、体量生成等），右侧为三维预览视口。一次完整比选通常按「加载场地 → 拾取红线/控制线 → 配置规范参数 → 生成体量 → 拷贝到 Rhino」进行。</p>
+          <div class="fig">
+            <!-- TODO: 替换为全屏工作台总览截图 -->
+            <img src="http://10.253.6.206:5000/images/stock_renew/cases/168/00.jpg" alt="工作台总览占位图" />
+          </div>
+          <p class="fig-cap">占位图 · 建议换成全屏工作台总览（左面板 + 右视口）</p>
+          <p class="muted">若文档长度单位不是米，可先在「高级设置」中将长度单位设为「自动（跟随 Rhino 文档）」，再开展拾取与生成，避免数值换算偏差。</p>
+
+          <h3 id="quickstart-site">场地环境加载</h3>
+          <p>在左侧「场地模型」区选择加载方式并填写参数后，系统在视口显示周边建筑与道路轮廓，为体量放置提供参照。支持三种方式：</p>
+          <ul>
+            <li><strong>本地文件</strong>：选择本机场地数据文件，直接加载至视口预览（适用于已有场地模型）。</li>
+            <li><strong>城市与地点名称</strong>：填写城市、地点，经开放地图数据拉取周边建成环境（适合快速了解陌生地块）。</li>
+            <li><strong>经纬度坐标</strong>：输入经度、纬度，按坐标获取周边建筑与道路轮廓（适用于已知精确坐标）。</li>
+          </ul>
+          <div class="fig">
+            <!-- TODO: 替换为场地加载面板截图 -->
+            <img src="http://10.253.6.206:5000/images/stock_renew/cases/168/00.jpg" alt="场地加载占位图" />
+          </div>
+          <p class="fig-cap">占位图 · 建议换成「场地模型」加载面板与视口预览</p>
+          <p>加载过程中视口中央会显示等待提示；完成后几何以预览形式叠加。对结果不满意时可更换方式重新获取。满意后可用「拷贝到 Rhino」将场地写入当前文档。</p>
+
+          <h3 id="quickstart-boundary">红线与控制线</h3>
+          <p>在「体量生成」模块中完成场地红线与建筑控制线绑定，二者是后续生成的空间边界依据。</p>
+          <ul>
+            <li><strong>场地红线</strong>：点击「拾取」，在 Rhino 视图中选择代表用地边界的<strong>闭合曲线</strong>；输入框出现对象标识且面积提示不为「未知」，即表示绑定成功。
+            </li>
+            <li><strong>建筑控制线</strong>：可再次「拾取」已有控制线；或在已有红线后点击「生成」，由系统按退让距离向内偏移自动生成（适合快速方案阶段）。</li>
+          </ul>
+          <p>绑定后系统会显示红线内面积与控制线内面积。可随时重新拾取替换曲线，系统会更新绑定并重算面积。</p>
+          <div class="fig">
+            <!-- TODO: 替换为红线/控制线拾取截图 -->
+            <img src="http://10.253.6.206:5000/images/stock_renew/cases/168/00.jpg" alt="红线控制线占位图" />
+          </div>
+          <p class="fig-cap">占位图 · 建议换成红线拾取与控制线生成界面</p>
+
+          <h3 id="quickstart-params">设计参数</h3>
+          <p>完成边界绑定后，在体量生成面板配置规范与原型参数：</p>
+          <ul>
+            <li><strong>建筑密度 / 覆盖面积</strong>；与双向联动，改其一，另一项实时换算。</li>
+            <li><strong>容积率 / 建筑面积</strong>；与双向联动，改其一，另一项实时换算。</li>
+            <li><strong>高度限制</strong>：最大允许高度，默认 24 m。过低可能导致无法满足容积率。</li>
+            <li><strong>朝向</strong>：可拾取积极朝向与消极朝向向量。</li>
+            <li><strong>原型模式</strong>：
+              <table>
+                <thead>
+                  <tr>
+                    <th>模式</th>
+                    <th>说明</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>单一要素</td>
+                    <td>单一体量造型构成整个方案</td>
+                  </tr>
+                  <tr>
+                    <td>组合要素</td>
+                    <td>一系列相近体量的组合共同构成方案</td>
+                  </tr>
+                  <tr>
+                    <td>组合要素-</td>
+                    <td>一系列相近体量的组合共同构成方案，每一体量的造型不可选</td>
+                  </tr>
+                  <tr>
+                    <td>组合要素+</td>
+                    <td>一系列相近体量的组合共同构成方案，增加一个特殊体量</td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+          </ul>
+          <div class="fig">
+            <!-- TODO: 替换为规范参数 / 原型选择面板截图 -->
+            <img src="http://10.253.6.206:5000/images/stock_renew/cases/168/00.jpg" alt="规范参数占位图" />
+          </div>
+          <p class="fig-cap">占位图 · 建议换成密度/容积率与原型模式选择面板</p>
+
+          <h3 id="quickstart-generate">生成体量、预览、拷贝到Rhino</h3>
+          <ul>
+            <li>点击「生成体量」（或在指令框输入 <code>generate</code>），系统在满足红线、控制线与指标约束下计算并生成方案。</li>
+            <li>右侧视口三维预览：右键拖动旋转，滚轮缩放，Shift + 右键平移。顶部工具栏可切换透视/正交、显示模式等。</li>
+            <li>预览满意后，点击「拷贝到 Rhino」，将体量写入当前文档为可编辑几何，便于深化、立面与出图。</li>
+            <li>不满意时可调整密度、容积率、限高、朝向或原型模式后再次生成，支持多轮迭代比选。</li>
+          </ul>
+          <div class="fig">
+            <!-- TODO: 替换为体量三维预览截图 -->
+            <img src="http://10.253.6.206:5000/images/stock_renew/cases/168/00.jpg" alt="体量预览占位图" />
+          </div>
+          <p class="fig-cap">占位图 · 建议换成生成体量三维预览与「拷贝到 Rhino」</p>
+          <p class="muted">注意：预览不会自动写入文档，须手动「拷贝到 Rhino」才会保留到模型。</p>
 
           <h3 id="quickstart-commands">工作台命令（节选）</h3>
           <p class="muted">中央视口下方指令框输入后按 Enter；命令不区分大小写。</p>
           <table>
             <thead>
-              <tr><th>命令</th><th>作用</th></tr>
+              <tr>
+                <th>命令</th>
+                <th>作用</th>
+              </tr>
             </thead>
             <tbody>
-              <tr><td><code>generate</code></td><td>触发生成体量（等同左侧面板按钮）</td></tr>
-              <tr><td><code>developer</code></td><td>打开工作台配置 · 开发者选项</td></tr>
-              <tr><td><code>protoconfig</code></td><td>打开工作台配置 · 原型预加载</td></tr>
-              <tr><td><code>setapikey</code></td><td>设置 API Key（只写不读）</td></tr>
-              <tr><td><code>readapikey</code></td><td>在打印区显示当前 Key</td></tr>
+              <tr>
+                <td><code>developer</code></td>
+                <td>打开工作台配置（开发者选项）</td>
+              </tr>
+              <tr>
+                <td><code>protoconfig</code></td>
+                <td>打开工作台配置（原型预加载）</td>
+              </tr>
+              <tr>
+                <td><code>setapikey</code></td>
+                <td>设置APIKey</td>
+              </tr>
             </tbody>
           </table>
-          <p class="muted">完整列表见仓库 <code>docs/guide-cmd.md</code>。</p>
 
-          <h3 id="quickstart-flow">推荐流程（示例）</h3>
-          <ol>
-            <li>确认网络：能打开 <a href="/">门户首页</a>。</li>
-            <li><code>setapikey</code> 写入密钥（若安装时未填）。</li>
-            <li><code>developer</code> 核对 AppServerUrl / 单入口模式。</li>
-            <li>在左侧面板选择原型并 <code>generate</code>。</li>
-          </ol>
-          <p class="todo">TODO：补充界面截图（建议图床 <code>/images/protomass/quickstart-*.jpg</code>）。</p>
+
         </section>
 
-        <section id="remote" class="guide-section">
+        <section id="remote" class="guide-section" hidden>
           <h2>远程办公</h2>
-          <p class="section-lead">不在集团内网时，须先连接集团 VPN</p>
+          <p class="section-lead">
+            集团局域网外通过VPN接入集团内网，再使用应用客户端。操作步骤可以参考本教程或下载中心中的集团VPN使用手册（两者内容一致）。本教程中的操作流程只需操作一次，后续使用时只需一键启动VPN即可。</p>
 
-          <h3 id="remote-why">为何需要 VPN</h3>
-          <p>ProtoMass AppServer 部署在集团内网（样例主机 <code>10.253.6.206:7250</code>）。外网或家用网络无法直连时，需通过集团 SSL-VPN 进入内网，再访问门户与业务接口。</p>
+          <h3 id="remote-why">适用场景</h3>
+          <p>在<strong>集团局域网环境外</strong>（家中、客户公司、差旅途中等），需在电脑网络畅通的前提下，通过 EasyConnect（EC）VPN 接入集团局域网，方可访问内部应用系统（含本门户与
+            ProtoMass AppServer）。</p>
+          <p class="muted">使用顺序：先成功连接 VPN → 再打开浏览器访问内网应用 / 启动客户端。</p>
 
-          <h3 id="remote-steps">连接步骤（提纲）</h3>
-          <ol>
-            <li>打开集团 VPN 入口：<a href="https://180.166.157.216" target="_blank" rel="noopener">https://180.166.157.216</a>（EasyConnect SSL-VPN）。</li>
-            <li>按账号权限登录并完成客户端连接。</li>
-            <li>浏览器访问 <a href="/">本门户首页</a>，确认页面可打开。</li>
-            <li>再启动 Rhino / ProtoMass 客户端进行设计操作。</li>
-          </ol>
-          <p>
-            <a class="btn" href="https://180.166.157.216" target="_blank" rel="noopener">打开 VPN 入口</a>
-            <a class="btn secondary" href="/downloads/">下载 VPN 说明 PDF</a>
-          </p>
-          <p class="muted">正式 PDF 手册放入服务器 <code>DownloadsRoot/docs/</code> 后，下载中心链接才会可用。</p>
-
-          <h3 id="remote-troubleshoot">仍无法访问时</h3>
+          <h3 id="remote-install">下载与安装</h3>
           <ul>
-            <li>确认 VPN 已连接成功（非仅打开登录页）。</li>
-            <li>确认门户地址与安装指南一致（端口 <code>7250</code>）。</li>
-            <li>联系项目运维核对白名单 / 主机状态（勿向终端用户分发运维 URL）。</li>
+            <li>打开浏览器，访问集团 ECVPN 服务器：
+              <a href="https://180.166.157.216" target="_blank" rel="noopener">https://180.166.157.216</a>。
+            </li>
+            <li>下载 EasyConnect 客户端并完成安装。</li>
+            <li>若安装完成后提示升级，点击「是」。</li>
           </ul>
-          <p class="todo">TODO：嵌入 VPN 登录步骤截图；PDF 文件名与下载链接对齐后去掉占位提示。</p>
+          <div class="fig">
+            <!-- TODO: 替换为 VPN 门户下载页截图 -->
+            <img src="http://10.253.6.206:5000/images/stock_renew/cases/168/00.jpg" alt="VPN 下载安装占位图" />
+          </div>
+          <p class="fig-cap">占位图 · 建议换成 ECVPN 门户下载 / EasyConnect 安装界面</p>
+
+          <h3 id="remote-connect">连接 VPN</h3>
+          <ul>
+            <li>打开已安装的 EasyConnect 客户端。</li>
+            <li>输入服务器地址：<code>https://180.166.157.216</code>。</li>
+            <li>点击蓝色箭头按钮进入登录。</li>
+          </ul>
+          <div class="fig">
+            <!-- TODO: 替换为 EasyConnect 连接界面截图 -->
+            <img src="http://10.253.6.206:5000/images/stock_renew/cases/168/00.jpg" alt="VPN 连接占位图" />
+          </div>
+          <p class="fig-cap">占位图 · 建议换成 EasyConnect 服务器地址与连接按钮界面</p>
+
+          <h3 id="remote-auth">身份认证</h3>
+          <ul>
+            <li><strong>用户名</strong>：个人工号</li>
+            <li><strong>密码</strong>：工号对应密码，同华建邮箱</li>
+          </ul>
+          <p>登录成功后，VPN 隧道建立完成。请确认客户端显示已连接（非仅停留在登录页）。</p>
+          <div class="fig">
+            <!-- TODO: 替换为登录成功 / 已连接状态截图 -->
+            <img src="http://10.253.6.206:5000/images/stock_renew/cases/168/00.jpg" alt="VPN 认证占位图" />
+          </div>
+          <p class="fig-cap">占位图 · 建议换成身份认证与连接成功状态</p>
+
+          <h3 id="remote-access">确认连通并启动客户端</h3>
+          <ul>
+            <li>登录 VPN 后，重新打开浏览器窗口（避免沿用未连 VPN 时的旧会话）。</li>
+            <li>点击访问<a href="http://10.253.6.206:7250/welcome">连通检测</a>，确认页面可打开。</li>
+            <li>再启动hino，点击图标或命令行输入proto以启动客户端。</li>
+          </ul>
+          <div class="fig">
+            <!-- TODO: 替换为 VPN 后打开门户首页截图 -->
+            <img src="http://10.253.6.206:5000/images/stock_renew/cases/168/00.jpg" alt="访问门户占位图" />
+          </div>
+          <p class="fig-cap">占位图 · 建议换成 VPN 连接后成功打开门户首页</p>
+
+
         </section>
       </div>
     </div>
@@ -152,30 +288,144 @@
   <footer class="site-footer">华建集团中央研究院 | 华建集团华东院</footer>
   <script>
     (function () {
-      var links = Array.prototype.slice.call(document.querySelectorAll(".guide-toc a[href^='#']"));
-      if (!links.length) return;
-      var ids = links.map(function (a) { return a.getAttribute("href").slice(1); });
-      var sections = ids.map(function (id) { return document.getElementById(id); }).filter(Boolean);
+      var toc = document.querySelector(".guide-toc");
+      var body = document.querySelector(".guide-body");
+      if (!toc || !body) return;
 
-      function setActive(id) {
-        links.forEach(function (a) {
+      var groups = Array.prototype.slice.call(toc.querySelectorAll(".toc-group[data-section]"));
+      var primaryIds = groups.map(function (g) { return g.getAttribute("data-section"); });
+      var primarySet = {};
+      primaryIds.forEach(function (id) { primarySet[id] = true; });
+
+      var idToPrimary = {};
+      groups.forEach(function (g) {
+        var sid = g.getAttribute("data-section");
+        Array.prototype.forEach.call(g.querySelectorAll("a[href^='#']"), function (a) {
+          idToPrimary[a.getAttribute("href").slice(1)] = sid;
+        });
+      });
+
+      var activePrimary = primaryIds[0] || null;
+
+      function resolvePrimary(id) {
+        if (!id) return activePrimary || primaryIds[0];
+        if (primarySet[id]) return id;
+        return idToPrimary[id] || activePrimary || primaryIds[0];
+      }
+
+      function setPrimary(id, opts) {
+        opts = opts || {};
+        var sid = resolvePrimary(id);
+        if (!sid) return;
+        activePrimary = sid;
+
+        groups.forEach(function (g) {
+          var on = g.getAttribute("data-section") === sid;
+          g.classList.toggle("is-active", on);
+          g.setAttribute("aria-hidden", on ? "false" : "true");
+        });
+
+        Array.prototype.forEach.call(body.querySelectorAll(".guide-section"), function (sec) {
+          var on = sec.id === sid;
+          sec.classList.toggle("is-active", on);
+          sec.hidden = !on;
+        });
+
+        if (opts.hash !== false) {
+          var hashId = opts.hashId || sid;
+          if (history.replaceState) {
+            history.replaceState(null, "", "#" + hashId);
+          } else {
+            location.hash = hashId;
+          }
+        }
+
+        if (opts.scrollTo) {
+          var el = document.getElementById(opts.scrollTo);
+          if (el) {
+            requestAnimationFrame(function () {
+              el.scrollIntoView({ behavior: opts.smooth ? "smooth" : "auto", block: "start" });
+            });
+          }
+        }
+
+        updateActiveLink(opts.scrollTo || sid);
+      }
+
+      function updateActiveLink(id) {
+        var links = toc.querySelectorAll("a[href^='#']");
+        Array.prototype.forEach.call(links, function (a) {
           a.classList.toggle("is-active", a.getAttribute("href") === "#" + id);
         });
       }
 
       function onScroll() {
-        var y = window.scrollY + 96;
-        var current = ids[0];
-        for (var i = 0; i < sections.length; i++) {
-          if (sections[i].offsetTop <= y) current = sections[i].id;
+        var section = document.getElementById(activePrimary);
+        if (!section || section.hidden) return;
+        var heads = Array.prototype.slice.call(section.querySelectorAll("h3[id]"));
+        if (!heads.length) {
+          updateActiveLink(activePrimary);
+          return;
         }
-        setActive(current);
+        var current = activePrimary;
+        for (var i = 0; i < heads.length; i++) {
+          if (heads[i].getBoundingClientRect().top <= 96) current = heads[i].id;
+        }
+        updateActiveLink(current);
       }
 
+      toc.addEventListener("click", function (e) {
+        var a = e.target.closest("a[href^='#']");
+        if (!a || !toc.contains(a)) return;
+        e.preventDefault();
+        var id = a.getAttribute("href").slice(1);
+        var sid = resolvePrimary(id);
+        var isL1 = primarySet[id];
+        setPrimary(sid, {
+          hashId: id,
+          // 一级互斥切换不滚动；二级锚点仍滚到对应标题
+          scrollTo: isL1 ? null : id,
+          smooth: !isL1
+        });
+      });
+
+      body.addEventListener("click", function (e) {
+        var a = e.target.closest("a[href^='#']");
+        if (!a || !body.contains(a)) return;
+        var id = a.getAttribute("href").slice(1);
+        if (!idToPrimary[id] && !primarySet[id]) return;
+        e.preventDefault();
+        var sid = resolvePrimary(id);
+        var isL1 = primarySet[id];
+        setPrimary(sid, {
+          hashId: id,
+          scrollTo: isL1 ? null : id,
+          smooth: !isL1
+        });
+      });
+
+      window.addEventListener("hashchange", function () {
+        var id = location.hash.slice(1);
+        if (!id) return;
+        setPrimary(resolvePrimary(id), {
+          hash: false,
+          scrollTo: primarySet[id] ? null : id,
+          smooth: false
+        });
+      });
+
       window.addEventListener("scroll", onScroll, { passive: true });
+
+      var initial = location.hash.slice(1);
+      var startId = resolvePrimary(initial) || primaryIds[0];
+      setPrimary(startId, {
+        hash: !!initial,
+        hashId: initial || startId,
+        scrollTo: initial && !primarySet[initial] ? initial : null
+      });
       onScroll();
-      if (location.hash) setActive(location.hash.slice(1));
     })();
   </script>
 </body>
+
 </html>
