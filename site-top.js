@@ -27,8 +27,8 @@
         "</p>" +
       "</a>" +
       '<nav class="site-top-nav" aria-label="站点导航">' +
-        '<a href="/intro/"' + cls("intro") + "><strong>产品介绍</strong><span>Introduction</span></a>" +
-        '<a href="/guide/"' + cls("guide") + "><strong>使用指南</strong><span>Guide</span></a>" +
+        '<a href="/intro/"' + cls("intro") + "><strong>产品入口</strong><span>Entry</span></a>" +
+        '<a href="/guide/"' + cls("guide") + "><strong>产品指南</strong><span>Guide</span></a>" +
         '<a href="/downloads/"' + cls("downloads") + "><strong>下载中心</strong><span>Resource</span></a>" +
         '<a href="/about/"' + cls("about") + "><strong>关于我们</strong><span>About</span></a>" +
       "</nav>" +

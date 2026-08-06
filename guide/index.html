@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>使用指南 · 建筑原型手册</title>
+  <title>产品指南 · 建筑原型手册</title>
   <link rel="stylesheet" href="/site.css" />
 </head>
 
@@ -12,13 +12,20 @@
   <div data-site-top></div>
   <script src="/site-top.js"></script>
   <main class="site-main guide-doc">
-    <!-- <h1 class="page-title">使用指南</h1>
-    <p class="page-lead">安装、上手与远程办公说明</p> -->
+    <!-- <h1 class="page-title">产品指南</h1>
+    <p class="page-lead">简介、安装、上手与远程办公说明</p> -->
 
     <div class="guide-layout">
       <nav class="guide-toc" aria-label="本页目录">
-        <div class="toc-group is-active" data-section="install">
-          <a class="toc-l1" href="#install">安装指南</a>
+        <div class="toc-group is-active" data-section="intro">
+          <a class="toc-l1" href="#intro">产品简介</a>
+          <a class="toc-l2" href="#intro-position">产品定位</a>
+          <a class="toc-l2" href="#intro-background">项目背景</a>
+          <a class="toc-l2" href="#intro-audience">适用对象</a>
+        </div>
+
+        <div class="toc-group" data-section="install">
+          <a class="toc-l1" href="#install">客户端安装</a>
           <a class="toc-l2" href="#install-network">网络环境检查</a>
           <a class="toc-l2" href="#install-env">系统环境要检查</a>
           <a class="toc-l2" href="#install-wizard">下载并运行安装包</a>
@@ -26,13 +33,17 @@
         </div>
 
         <div class="toc-group" data-section="quickstart">
-          <a class="toc-l1" href="#quickstart">快速上手</a>
+          <a class="toc-l1" href="#quickstart">客户端使用</a>
           <a class="toc-l2" href="#quickstart-before">开始前</a>
           <a class="toc-l2" href="#quickstart-site">场地环境加载</a>
           <a class="toc-l2" href="#quickstart-boundary">红线与控制线</a>
           <a class="toc-l2" href="#quickstart-params">设计参数</a>
           <a class="toc-l2" href="#quickstart-generate">生成体量与预览</a>
           <a class="toc-l2" href="#quickstart-commands">工作台命令</a>
+        </div>
+
+        <div class="toc-group" data-section="workbench">
+          <a class="toc-l1" href="#workbench">网页端使用</a>
         </div>
 
         <div class="toc-group" data-section="remote">
@@ -48,14 +59,36 @@
       </nav>
 
       <div class="guide-body">
-        <section id="install" class="guide-section is-active">
-          <h2>安装指南</h2>
+        <section id="intro" class="guide-section is-active">
+          <h2>产品简介</h2>
+          <p class="section-lead">建筑原型手册-智能设计工具的定位、背景与适用对象</p>
+
+          <h3 id="intro-position">产品定位</h3>
+          <p>
+            <strong>建筑原型手册-智能设计工具</strong>是一款面向原创设计的，基于案例与原型的，建筑体量方案智能演绎工具，由华建集团中央研究院与华东院合作研发。该工具提供嵌入Rhino软件的全屏工作台，帮助建筑师在方案前期快速生成、比选符合场地条件与规划指标的体量方案。它将建筑师长期实践中形成的「原型」工作方法数字化：从既有案例提炼可复用的形式特征与操作规则，在新场地环境中演绎组合，穷举并迭代选优。
+          </p>
+
+          <h3 id="intro-background">项目背景</h3>
+          <p>
+            建筑原创设计要求建筑师解构重组经验知识、快速提出大量方案，并在充分考虑场地条件的基础上迭代选优。华东院创作中心基于多年实践，发展出一套「原型」方法：通过几何形态分析形成建筑体量原型，再基于场地条件演绎原型，从而系统探索初步方案。数字化与人工智能技术为这一方法带来新机遇——原型可进一步抽象提炼、组合成更多新颖体量；计算可快速大量执行，提升方案试排与选优的规模与速度。本工具即在此背景下，服务原创设计方案试排体制增效。
+          </p>
+
+          <h3 id="intro-audience">适用对象</h3>
+          <ul>
+            <li>建筑方案创作、城市设计相关业务团队。</li>
+            <li>相关科研究人员、开发者、教师及学生。</li>
+          </ul>
+        </section>
+
+        <section id="install" class="guide-section" hidden>
+          <h2>客户端安装</h2>
           <p class="section-lead">建筑原型手册客户端安装流程</p>
 
           <h3 id="install-network">网络环境检查</h3>
           <ul>
             <li>说明：本应用目前仅限华建集团内部使用，因此需要确保您的设备位于内网。</li>
-            <li>连通测试：打开 <a href="http://10.253.6.206:7250/welcome">连通检测</a>，能打开即表示您的设备已接入华建集团内网。</li>
+            <li>连通测试：打开 <a href="http://10.253.6.206:7250/welcome" target="_blank"
+                rel="noopener">连通检测</a>，能打开即表示您的设备已接入华建集团内网。</li>
             <li>若设备不在华建集团内网（例如您家中的电脑），请先按 <a href="#remote">远程办公</a> 的步骤连接VPN，再使用本应用。</li>
           </ul>
 
@@ -64,21 +97,25 @@
             <li>操作系统：Windows 10/11</li>
             <li>建模软件：当前安装包仅支持Rhino8，不支持Rhino7及更早版本。</li>
           </ul>
-          <div class="fig">
-            <!-- TODO: 替换为 Rhino 8 / 安装环境示意截图 -->
-            <img src="http://10.253.6.206:5000/images/stock_renew/cases/168/00.jpg" alt="环境示意占位图" />
-          </div>
-          <p class="fig-cap">占位图 · 建议换成 Rhino 8 启动或安装向导截图</p>
+
 
           <h3 id="install-wizard">下载并运行安装包</h3>
           <ul>
-            <li>前往 <a href="/downloads/">下载中心</a> 获取客户端安装包，或直接下载默认安装包
-              <a
-                href="/downloads/ProtoMass/installer/【安装包】建筑原型手册-智能设计工具-0.2.7.1.zip">【安装包】建筑原型手册-智能设计工具-0.2.7.1.zip</a>。
+            <li>前往 <a href="/downloads/" target="_blank" rel="noopener">下载中心</a> 获取客户端安装包，或直接下载默认安装包
+              <a href="/downloads/ProtoMass/installer/【安装包】建筑原型手册-智能设计工具-0.2.7.1.zip" target="_blank"
+                rel="noopener">【安装包】建筑原型手册-智能设计工具-0.2.7.1.zip</a>。
             </li>
             <li>解压后运行 <code>install.cmd</code>，按照想到提示点击"安装"，"注册"。</li>
             <li>在向导中粘贴你的 <strong>ApiKey</strong>，获取apikey请联系胡工。</li>
           </ul>
+
+          <div class="fig">
+            <!-- TODO: 替换为 Rhino 8 / 安装环境示意截图 -->
+            <img
+              src="https://workhub.oss-cn-shanghai.aliyuncs.com/picture/research/imghost-R25-B01-ProtoMass/installer-001.jpg"
+              alt="环境示意占位图" />
+          </div>
+          <p class="fig-cap">安装向导运行界面示意</p>
 
           <h3 id="install-start">启动软件</h3>
           <ul>
@@ -91,21 +128,23 @@
         </section>
 
         <section id="quickstart" class="guide-section" hidden>
-          <h2>快速上手</h2>
+          <h2>客户端使用</h2>
           <p class="section-lead">在客户端中加载场地、设置参数、生成体量等核心流程</p>
 
           <h3 id="quickstart-before">开始前</h3>
           <ul>
-            <li>已按 <a href="#install">安装指南</a> 完成客户端安装，并能打开本门户。</li>
+            <li>已按 <a href="#install">客户端安装</a> 完成客户端安装，并能打开本门户。</li>
             <li>已用安装向导或命令 <code>setapikey</code> 写入本机 ApiKey。</li>
             <li>在 Rhino 8 中打开或新建文档，启动 ProtoMass 全屏工作台。</li>
           </ul>
           <p>工作台界面分左右两区：左侧为功能参数面板（场地模型、体量生成等），右侧为三维预览视口。一次完整比选通常按「加载场地 → 拾取红线/控制线 → 配置规范参数 → 生成体量 → 拷贝到 Rhino」进行。</p>
           <div class="fig">
             <!-- TODO: 替换为全屏工作台总览截图 -->
-            <img src="http://10.253.6.206:5000/images/stock_renew/cases/168/00.jpg" alt="工作台总览占位图" />
+            <img
+              src="https://workhub.oss-cn-shanghai.aliyuncs.com/picture/research/imghost-R25-B01-ProtoMass/using-initial-001.jpg"
+              alt="工作台总览占位图" />
           </div>
-          <p class="fig-cap">占位图 · 建议换成全屏工作台总览（左面板 + 右视口）</p>
+          <p class="fig-cap">客户端启动界面示意</p>
           <p class="muted">若文档长度单位不是米，可先在「高级设置」中将长度单位设为「自动（跟随 Rhino 文档）」，再开展拾取与生成，避免数值换算偏差。</p>
 
           <h3 id="quickstart-site">场地环境加载</h3>
@@ -117,24 +156,27 @@
           </ul>
           <div class="fig">
             <!-- TODO: 替换为场地加载面板截图 -->
-            <img src="http://10.253.6.206:5000/images/stock_renew/cases/168/00.jpg" alt="场地加载占位图" />
+            <img
+              src="https://workhub.oss-cn-shanghai.aliyuncs.com/picture/research/imghost-R25-B01-ProtoMass/using-envload-001.jpg"
+              alt="场地加载占位图" />
           </div>
-          <p class="fig-cap">占位图 · 建议换成「场地模型」加载面板与视口预览</p>
+          <p class="fig-cap">从网络数据加载场地模型</p>
           <p>加载过程中视口中央会显示等待提示；完成后几何以预览形式叠加。对结果不满意时可更换方式重新获取。满意后可用「拷贝到 Rhino」将场地写入当前文档。</p>
 
           <h3 id="quickstart-boundary">红线与控制线</h3>
-          <p>在「体量生成」模块中完成场地红线与建筑控制线绑定，二者是后续生成的空间边界依据。</p>
+          <p>在「体量生成」模块中完成场地红线与建筑控制线拾取，二者是后续生成的空间边界依据。</p>
           <ul>
-            <li><strong>场地红线</strong>：点击「拾取」，在 Rhino 视图中选择代表用地边界的<strong>闭合曲线</strong>；输入框出现对象标识且面积提示不为「未知」，即表示绑定成功。
+            <li><strong>场地红线</strong>：点击「拾取」，在 Rhino 视图中选择代表用地边界的<strong>闭合曲线</strong>。
             </li>
-            <li><strong>建筑控制线</strong>：可再次「拾取」已有控制线；或在已有红线后点击「生成」，由系统按退让距离向内偏移自动生成（适合快速方案阶段）。</li>
+            <li><strong>建筑控制线</strong>：可再次「拾取」已有控制线，用户可根据实际设计需求在红线区域内任意绘制；或在已有红线后点击「生成」，由系统按退让距离向内偏移自动生成（适合快速方案阶段）。</li>
           </ul>
-          <p>绑定后系统会显示红线内面积与控制线内面积。可随时重新拾取替换曲线，系统会更新绑定并重算面积。</p>
-          <div class="fig">
-            <!-- TODO: 替换为红线/控制线拾取截图 -->
-            <img src="http://10.253.6.206:5000/images/stock_renew/cases/168/00.jpg" alt="红线控制线占位图" />
+
+          <div class="fig" style="width: 300px">
+            <img
+              src="https://workhub.oss-cn-shanghai.aliyuncs.com/picture/research/imghost-R25-B01-ProtoMass/using-toolspanel-params-001.jpg"
+              alt="" />
           </div>
-          <p class="fig-cap">占位图 · 建议换成红线拾取与控制线生成界面</p>
+          <p class="fig-cap">体量生成操作面板示意</p>
 
           <h3 id="quickstart-params">设计参数</h3>
           <p>完成边界绑定后，在体量生成面板配置规范与原型参数：</p>
@@ -172,11 +214,6 @@
               </table>
             </li>
           </ul>
-          <div class="fig">
-            <!-- TODO: 替换为规范参数 / 原型选择面板截图 -->
-            <img src="http://10.253.6.206:5000/images/stock_renew/cases/168/00.jpg" alt="规范参数占位图" />
-          </div>
-          <p class="fig-cap">占位图 · 建议换成密度/容积率与原型模式选择面板</p>
 
           <h3 id="quickstart-generate">生成体量、预览、拷贝到Rhino</h3>
           <ul>
@@ -186,11 +223,13 @@
             <li>不满意时可调整密度、容积率、限高、朝向或原型模式后再次生成，支持多轮迭代比选。</li>
           </ul>
           <div class="fig">
-            <!-- TODO: 替换为体量三维预览截图 -->
-            <img src="http://10.253.6.206:5000/images/stock_renew/cases/168/00.jpg" alt="体量预览占位图" />
+            <img
+              src="https://workhub.oss-cn-shanghai.aliyuncs.com/picture/research/imghost-R25-B01-ProtoMass/using-volumegen-003.jpg"
+              alt="体量预览占位图" />
           </div>
-          <p class="fig-cap">占位图 · 建议换成生成体量三维预览与「拷贝到 Rhino」</p>
-          <p class="muted">注意：预览不会自动写入文档，须手动「拷贝到 Rhino」才会保留到模型。</p>
+          <p class="fig-cap">体量生成效果示意</p>
+
+          <p class="muted">注意：预览不会自动写入文档，须手动点击「拷贝到 Rhino」才会写入Rhino文件，类似grasshopper中的bake操作。</p>
 
           <h3 id="quickstart-commands">工作台命令（节选）</h3>
           <p class="muted">中央视口下方指令框输入后按 Enter；命令不区分大小写。</p>
@@ -220,10 +259,25 @@
 
         </section>
 
+        <section id="workbench" class="guide-section" hidden>
+          <h2>网页端使用</h2>
+          <p class="section-lead">无需安装 Rhino，在浏览器中完成场地加载、体量生成、Mesh 预览与 3dm 下载。</p>
+          <ul>
+            <li>入口：<a href="/workbench/" target="_blank" rel="noopener">/workbench/</a>（产品入口「网页版」亦可进入）。</li>
+            <li>鉴权：与 Rhino 客户端<strong>共用同一用户 ApiKey</strong>，在左侧「高级设置 → 开发者选项」中粘贴；勿放入 URL。</li>
+            <li>流程：可选「地图选点」确定建模范围并加载 OSM → 绘制场地红线（视口 XOY 折线）→ 绘制或「生成」建筑控制线（默认内退 5m）→ 生成体量 → 三维预览 → 下载 3dm（结果约 60
+              分钟内有效，过期请重新生成）。</li>
+            <li>浏览器要求：现代 Chromium / Edge / Firefox；需能访问本门户所在 AppServer。</li>
+          </ul>
+          <p class="muted">网页端侧重试用与协作交付；专业落图、文档内拾取与 Bake 仍请使用 Rhino 插件。</p>
+        </section>
+
         <section id="remote" class="guide-section" hidden>
           <h2>远程办公</h2>
           <p class="section-lead">
-            集团局域网外通过VPN接入集团内网，再使用应用客户端。操作步骤可以参考本教程或下载中心中的集团VPN使用手册（两者内容一致）。本教程中的操作流程只需操作一次，后续使用时只需一键启动VPN即可。</p>
+            集团局域网外通过VPN接入集团内网，再使用应用客户端。操作步骤可以参考本教程或下载中心中的<a href="/downloads/General/ArcplusVPN/【指南】华建集团VPN用户手册.pdf"
+              target="_blank" rel="noopener">华建集团VPN用户手册</a>（内容相同）。本教程中的操作流程只需操作一次，后续使用时只需一键启动VPN即可。
+          </p>
 
           <h3 id="remote-why">适用场景</h3>
           <p>在<strong>集团局域网环境外</strong>（家中、客户公司、差旅途中等），需在电脑网络畅通的前提下，通过 EasyConnect（EC）VPN 接入集团局域网，方可访问内部应用系统（含本门户与
@@ -238,11 +292,16 @@
             <li>下载 EasyConnect 客户端并完成安装。</li>
             <li>若安装完成后提示升级，点击「是」。</li>
           </ul>
-          <div class="fig">
-            <!-- TODO: 替换为 VPN 门户下载页截图 -->
-            <img src="http://10.253.6.206:5000/images/stock_renew/cases/168/00.jpg" alt="VPN 下载安装占位图" />
+          <div class="fig" style="width: 500px;">
+            <img src="https://workhub.oss-cn-shanghai.aliyuncs.com/picture/general/arcplus-vpn/arcplus-vpn%20(2).png"
+              alt="" />
           </div>
-          <p class="fig-cap">占位图 · 建议换成 ECVPN 门户下载 / EasyConnect 安装界面</p>
+          <p class="fig-cap">集团官方入口的ECVPN下载按键位置</p>
+          <div class="fig" style="width: 500px;">
+            <img src="https://workhub.oss-cn-shanghai.aliyuncs.com/picture/general/arcplus-vpn/arcplus-vpn%20(3).png"
+              alt="" />
+          </div>
+          <p class="fig-cap">根据系统版本选择对应安装包</p>
 
           <h3 id="remote-connect">连接 VPN</h3>
           <ul>
@@ -250,11 +309,11 @@
             <li>输入服务器地址：<code>https://180.166.157.216</code>。</li>
             <li>点击蓝色箭头按钮进入登录。</li>
           </ul>
-          <div class="fig">
-            <!-- TODO: 替换为 EasyConnect 连接界面截图 -->
-            <img src="http://10.253.6.206:5000/images/stock_renew/cases/168/00.jpg" alt="VPN 连接占位图" />
+          <div class="fig" style="width: 500px;">
+            <img src="https://workhub.oss-cn-shanghai.aliyuncs.com/picture/general/arcplus-vpn/arcplus-vpn%20(1).png"
+              alt="" />
           </div>
-          <p class="fig-cap">占位图 · 建议换成 EasyConnect 服务器地址与连接按钮界面</p>
+          <p class="fig-cap">在EasyConnect客户端中输入服务器地址</p>
 
           <h3 id="remote-auth">身份认证</h3>
           <ul>
@@ -262,25 +321,27 @@
             <li><strong>密码</strong>：工号对应密码，同华建邮箱</li>
           </ul>
           <p>登录成功后，VPN 隧道建立完成。请确认客户端显示已连接（非仅停留在登录页）。</p>
-          <div class="fig">
-            <!-- TODO: 替换为登录成功 / 已连接状态截图 -->
-            <img src="http://10.253.6.206:5000/images/stock_renew/cases/168/00.jpg" alt="VPN 认证占位图" />
-          </div>
-          <p class="fig-cap">占位图 · 建议换成身份认证与连接成功状态</p>
+
 
           <h3 id="remote-access">确认连通并启动客户端</h3>
           <ul>
             <li>登录 VPN 后，重新打开浏览器窗口（避免沿用未连 VPN 时的旧会话）。</li>
-            <li>点击访问<a href="http://10.253.6.206:7250/welcome">连通检测</a>，确认页面可打开。</li>
+            <li>点击访问<a href="http://10.253.6.206:7250/welcome" target="_blank" rel="noopener">连通检测</a>，确认页面可打开。</li>
             <li>再启动hino，点击图标或命令行输入proto以启动客户端。</li>
           </ul>
-          <div class="fig">
-            <!-- TODO: 替换为 VPN 后打开门户首页截图 -->
-            <img src="http://10.253.6.206:5000/images/stock_renew/cases/168/00.jpg" alt="访问门户占位图" />
+          <div class="fig" style="width: 500px;">
+            <img
+              src="https://workhub.oss-cn-shanghai.aliyuncs.com/picture/general/arcplus-vpn/protomass-206-connection.png"
+              alt="" />
           </div>
-          <p class="fig-cap">占位图 · 建议换成 VPN 连接后成功打开门户首页</p>
+          <p class="fig-cap">连通测试成功界面</p>
 
 
+          <h3 id="remote-notes">注意事项</h3>
+          <ul>
+            <li>勿在公共场所长期保持 VPN 与门户登录态；用毕请断开 VPN。</li>
+            <li>ApiKey 等同个人凭证，勿写入公开仓库或截图外传。</li>
+          </ul>
         </section>
       </div>
     </div>
