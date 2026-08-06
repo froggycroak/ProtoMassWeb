@@ -151,19 +151,19 @@ body {
   transition: transform 0.22s ease;
 }
 
-.site-top-nav a[href="/intro/"] {
+.site-top-nav a[data-nav="intro"] {
   view-transition-name: pm-nav-intro;
 }
 
-.site-top-nav a[href="/guide/"] {
+.site-top-nav a[data-nav="guide"] {
   view-transition-name: pm-nav-guide;
 }
 
-.site-top-nav a[href="/downloads/"] {
+.site-top-nav a[data-nav="downloads"] {
   view-transition-name: pm-nav-downloads;
 }
 
-.site-top-nav a[href="/about/"] {
+.site-top-nav a[data-nav="about"] {
   view-transition-name: pm-nav-about;
 }
 
@@ -270,10 +270,10 @@ body.is-portal .site-footer {
 
   .site-brand,
   .site-tagline,
-  .site-top-nav a[href="/intro/"],
-  .site-top-nav a[href="/guide/"],
-  .site-top-nav a[href="/downloads/"],
-  .site-top-nav a[href="/about/"] {
+  .site-top-nav a[data-nav="intro"],
+  .site-top-nav a[data-nav="guide"],
+  .site-top-nav a[data-nav="downloads"],
+  .site-top-nav a[data-nav="about"] {
     view-transition-name: none;
   }
 }
