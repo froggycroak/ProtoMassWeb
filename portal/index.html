@@ -2,25 +2,12 @@
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8" />
+  <meta http-equiv="refresh" content="0; url=/" />
   <title>建筑原型手册</title>
-  <script>
-    (function () {
-      var base = "";
-      if (/\.github\.io$/i.test(location.hostname)) {
-        var seg = location.pathname.split("/")[1];
-        if (seg) base = "/" + seg;
-      }
-      var home = base ? base + "/" : "/";
-      var link = document.querySelector('link[rel="canonical"]');
-      if (link) link.href = home;
-      var a = document.getElementById("home");
-      if (a) a.href = home;
-      location.replace(home);
-    })();
-  </script>
   <link rel="canonical" href="/" />
+  <script>location.replace("/");</script>
 </head>
 <body>
-  <p><a id="home" href="/">进入首页</a></p>
+  <p><a href="/">进入首页</a></p>
 </body>
 </html>
